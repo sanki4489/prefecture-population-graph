@@ -3,6 +3,7 @@ import { PopulationType, PrefectureType } from '../types/Types';
 import { getPrefectureList, getPrefecturePopulation } from '../service/Service';
 import PrefectureCheckBoxList from '../components/PrefectureCheckBoxList';
 import PopulationTypeButtonList from '../components/PopulationTypeButtonList';
+import PopulationChart from '../components/PopulationChart';
 
 type SelectedPrefListType = {
   checked: boolean;
@@ -75,6 +76,7 @@ const Home = () => {
         hanldeCheckBoxClick={hanldeCheckBoxClick}
       />
       <PopulationTypeButtonList populationType={populationType} handleBtnClick={handleBtnClick} />
+      <PopulationChart data={selectedPrefList} index={populationType} />
     </section>
   );
 };

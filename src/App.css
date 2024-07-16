@@ -8,6 +8,32 @@
   text-align: center;
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.loading {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+
+  > .spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--primary-color);
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.5s linear 0s infinite;
+  }
+}
+
 header.header {
   background-color: var(--primary-color);
   color: white;
@@ -21,36 +47,6 @@ header.header {
 
 main.mainContainer {
   min-height: 800px;
-}
-
-.popultaionTypeContainer {
-  margin: auto;
-  width: 500px;
-
-  .populationTypeBtnList {
-    display: flex;
-    gap: 10px;
-
-    > button {
-      cursor: pointer;
-      flex: 1;
-      padding: 12px 10px;
-      background-color: var(--secondary-color);
-      color: white;
-      border: 1px solid var(--primary-color);
-      border-radius: 12px;
-
-      &:hover {
-        background-color: white;
-        color: var(--primary-color);
-      }
-
-      &:disabled {
-        background-color: var(--primary-color);
-        color: white;
-      }
-    }
-  }
 }
 
 section.prefecture {
@@ -89,6 +85,48 @@ section.prefecture {
   }
 }
 
+.popultaionTypeContainer {
+  margin: auto;
+  width: 500px;
+
+  .populationTypeBtnList {
+    display: flex;
+    gap: 10px;
+
+    > button {
+      cursor: pointer;
+      flex: 1;
+      padding: 12px 10px;
+      background-color: var(--secondary-color);
+      color: white;
+      border: 1px solid var(--primary-color);
+      border-radius: 12px;
+
+      &:hover {
+        background-color: white;
+        color: var(--primary-color);
+      }
+
+      &:disabled {
+        background-color: var(--primary-color);
+        color: white;
+      }
+    }
+  }
+}
+
+/* fix rechart big screen single column list -> to multiple  */
+ul.recharts-tooltip-item-list {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0px 5px !important;
+}
+
+section.chartContainer {
+  display: flex;
+  justify-content: center;
+}
+
 footer.footer {
   > p > a.authorContact {
     color: white;
@@ -103,4 +141,34 @@ footer.footer {
   padding: 20px 0;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 600px) {
+  .checkBoxList {
+    grid-template-columns: repeat(3, 1fr) !important;
+    width: 280px !important;
+  }
+
+  .popultaionTypeContainer {
+    width: 280px;
+
+    > .populationTypeBtnList {
+      gap: 5px;
+
+      > button {
+        padding: 2px 5px;
+      }
+    }
+  }
+
+  /* make 2 col for mobile screen  */
+  ul.recharts-tooltip-item-list {
+    display: block !important;
+  }
+
+  /* make tooltip srcollable in mobile */
+  div.recharts-default-tooltip {
+    max-height: 400px !important;
+    overflow-y: scroll !important;
+  }
 }

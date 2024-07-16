@@ -19,6 +19,36 @@ header.header {
   }
 }
 
+.popultaionTypeContainer {
+  margin: auto;
+  width: 500px;
+
+  .populationTypeBtnList {
+    display: flex;
+    gap: 10px;
+
+    > button {
+      cursor: pointer;
+      flex: 1;
+      padding: 12px 10px;
+      background-color: var(--secondary-color);
+      color: white;
+      border: 1px solid var(--primary-color);
+      border-radius: 12px;
+
+      &:hover {
+        background-color: white;
+        color: var(--primary-color);
+      }
+
+      &:disabled {
+        background-color: var(--primary-color);
+        color: white;
+      }
+    }
+  }
+}
+
 section.prefecture {
   margin: 20px auto;
 

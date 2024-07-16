@@ -1,7 +1,7 @@
 import { ResponsiveContainer, Line, LineChart, Tooltip, XAxis, YAxis, Label, Legend, CartesianGrid } from 'recharts';
 import { PopulationType } from '../types/Types';
-import { DataTransformer } from '../utils/DataTransformer.ts';
-import { ColorList } from '../utils/ColorList.ts';
+import { DataTransformer } from '../utils/DataTransformer';
+import { ColorList } from '../utils/ColorList';
 
 type ChartProps = {
   data: { checked: boolean; name: string; id: string; population?: PopulationType['data'] }[];
